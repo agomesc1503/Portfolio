@@ -19,7 +19,7 @@ export const translations = {
     cyber: {
       menu: {
         about: "Identidad",
-        projects: "Archivos",
+        projects: "Experiencia personal",
         skills: "Mejoras",
         contact: "Contáctame"
       },
@@ -31,9 +31,11 @@ export const translations = {
         quote: "\"Moldeando la realidad a través del código.\""
       },
       projects: {
-        title: "> Accediendo a Archivos de Datos",
-        p1: { title: "// PORTFOLIO HOLOGRÁFICO", sub: "React, CSS3, Vite", desc: "Simulación interactiva de interfaz neuronal." },
-        p2: { title: "// CYBER-COMMERCE", sub: "Node.js, MongoDB, React", desc: "Plataforma de intercambio de activos digitales en el mercado negro." }
+        title: "> Registros de Experiencia",
+        list: [
+          { title: "// PORTFOLIO HOLOGRÁFICO", sub: "React, CSS3, Vite", desc: "Simulación interactiva de interfaz neuronal." },
+          { title: "// BALANCEA-APP", sub: "Finanzas Personales", desc: "Aplicación dedicada a controlar el balance de una manera personalizada a gusto del consumidor." }
+        ]
       },
       skills: {
         title: "> Cyberware Instalado",
@@ -95,7 +97,7 @@ export const translations = {
     cyber: {
       menu: {
         about: "Identity",
-        projects: "Archives",
+        projects: "Experience",
         skills: "Upgrades",
         contact: "Contact Me"
       },
@@ -107,9 +109,11 @@ export const translations = {
         quote: "\"Molding reality through code.\""
       },
       projects: {
-        title: "> Accessing Data Archives",
-        p1: { title: "// HOLOGRAPHIC PORTFOLIO", sub: "React, CSS3, Vite", desc: "Interactive neural interface simulation." },
-        p2: { title: "// CYBER-COMMERCE", sub: "Node.js, MongoDB, React", desc: "Black market digital asset exchange platform." }
+        title: "> Experience Logs",
+        list: [
+          { title: "// HOLOGRAPHIC PORTFOLIO", sub: "React, CSS3, Vite", desc: "Interactive neural interface simulation." },
+          { title: "// BALANCEA-APP", sub: "Personal Finance", desc: "Finance application dedicated to personalized balance tracking." }
+        ]
       },
       skills: {
         title: "> Installed Cyberware",

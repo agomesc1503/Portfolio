@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { User, Folder, Cpu, Mail, TerminalSquare } from 'lucide-react';
 
 export default function CyberpunkOS({ lang, t }) {
   const [activePanel, setActivePanel] = useState('about');
+  const scrollContainerRef = useRef(null);
   const c = t.cyber;
 
   const menuItems = [
@@ -12,10 +13,72 @@ export default function CyberpunkOS({ lang, t }) {
     { id: 'contact', label: c.menu.contact, icon: <Mail size={28} /> },
   ];
 
-  const renderContent = () => {
-    switch (activePanel) {
-      case 'about':
-        return (
+  // Intersection Observer para actualizar el icono activo en el menú al scrollear
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActivePanel(entry.target.id);
+          }
+        });
+      },
+      { root: scrollContainerRef.current, threshold: 0.5 }
+    );
+
+    menuItems.forEach(item => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [lang]);
+
+  const scrollToSection = (id) => {
+    setActivePanel(id);
+    const element = document.getElementById(id);
+    if (element && scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: element.offsetTop - 40,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const renderSectionHeader = (id, label) => (
+    <div className="hologram-header">
+      <div className="hologram-title">
+        <TerminalSquare size={24} />
+        {label}
+      </div>
+      <div style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'monospace' }}>
+        SECURE_LINK // {id.toUpperCase()}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="cyber-desktop">
+      <div className="cyber-grid"></div>
+
+      <div className="cyber-sidebar">
+        {menuItems.map(item => (
+          <div 
+            key={item.id}
+            className={`cyber-icon ${activePanel === item.id ? 'active' : ''}`}
+            onClick={() => scrollToSection(item.id)}
+          >
+            {item.icon}
+            <span style={{ marginTop: '8px' }}>{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="hologram-panel-container" ref={scrollContainerRef}>
+        
+        {/* ABOUT SECTION */}
+        <div id="about" className="hologram-panel scroll-section">
+          {renderSectionHeader('about', c.menu.about)}
           <div className="hologram-content">
             <h3>{c.about.title}</h3>
             <p>{c.about.scanning}</p>
@@ -37,10 +100,10 @@ export default function CyberpunkOS({ lang, t }) {
                 overflow: 'hidden'
               }}>
                 <span style={{ fontSize: '10px', color: 'var(--neon-cyan)', position: 'absolute', textAlign: 'center', padding: '10px' }}>
-                  Añade tu foto como 'profile.jpg' en la carpeta public/
+                  Añade tu foto como 'profile.jpeg' en la carpeta public/
                 </span>
                 <img 
-                  src="/profile.jpg" 
+                  src="/profile.jpeg" 
                   alt="Profile" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative', zIndex: 10 }}
                   onError={(e) => e.target.style.display = 'none'}
@@ -55,27 +118,28 @@ export default function CyberpunkOS({ lang, t }) {
               </div>
             </div>
           </div>
-        );
-      case 'projects':
-        return (
+        </div>
+
+        {/* PROJECTS SECTION */}
+        <div id="projects" className="hologram-panel scroll-section">
+          {renderSectionHeader('projects', c.menu.projects)}
           <div className="hologram-content">
             <h3>{c.projects.title}</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '20px' }}>
-              <div style={{ padding: '15px', border: '1px solid rgba(0,243,255,0.3)', background: 'rgba(0,0,0,0.5)' }}>
-                <h4 style={{ color: 'var(--neon-cyan)', marginBottom: '5px' }}>{c.projects.p1.title}</h4>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>{c.projects.p1.sub}</p>
-                <p style={{ marginTop: '10px' }}>{c.projects.p1.desc}</p>
-              </div>
-              <div style={{ padding: '15px', border: '1px solid rgba(0,243,255,0.3)', background: 'rgba(0,0,0,0.5)' }}>
-                <h4 style={{ color: 'var(--neon-cyan)', marginBottom: '5px' }}>{c.projects.p2.title}</h4>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>{c.projects.p2.sub}</p>
-                <p style={{ marginTop: '10px' }}>{c.projects.p2.desc}</p>
-              </div>
+              {c.projects.list.map((proj, idx) => (
+                <div key={idx} style={{ padding: '15px', border: '1px solid rgba(0,243,255,0.3)', background: 'rgba(0,0,0,0.5)' }}>
+                  <h4 style={{ color: 'var(--neon-cyan)', marginBottom: '5px' }}>{proj.title}</h4>
+                  <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>{proj.sub}</p>
+                  <p style={{ marginTop: '10px' }}>{proj.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
-        );
-      case 'skills':
-        return (
+        </div>
+
+        {/* SKILLS SECTION */}
+        <div id="skills" className="hologram-panel scroll-section">
+          {renderSectionHeader('skills', c.menu.skills)}
           <div className="hologram-content">
             <h3>{c.skills.title}</h3>
             <p style={{ marginBottom: '20px' }}>{c.skills.desc}</p>
@@ -89,9 +153,11 @@ export default function CyberpunkOS({ lang, t }) {
               <span className="cyber-button">Git</span>
             </div>
           </div>
-        );
-      case 'contact':
-        return (
+        </div>
+
+        {/* CONTACT SECTION */}
+        <div id="contact" className="hologram-panel scroll-section">
+          {renderSectionHeader('contact', c.menu.contact)}
           <div className="hologram-content">
             <h3>{c.contact.title}</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '30px' }}>
@@ -122,45 +188,11 @@ export default function CyberpunkOS({ lang, t }) {
 
             </div>
           </div>
-        );
-      default:
-        return null;
-    }
-  };
-
-  const activeItem = menuItems.find(m => m.id === activePanel);
-
-  return (
-    <div className="cyber-desktop">
-      <div className="cyber-grid"></div>
-
-      <div className="cyber-sidebar">
-        {menuItems.map(item => (
-          <div 
-            key={item.id}
-            className={`cyber-icon ${activePanel === item.id ? 'active' : ''}`}
-            onClick={() => setActivePanel(item.id)}
-          >
-            {item.icon}
-            <span style={{ marginTop: '8px' }}>{item.label}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="hologram-panel-container">
-        <div key={activePanel + lang} className="hologram-panel">
-          <div className="hologram-header">
-            <div className="hologram-title">
-              <TerminalSquare size={24} />
-              {activeItem?.label}
-            </div>
-            <div style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'monospace' }}>
-              SECURE_LINK // {activePanel.toUpperCase()}
-            </div>
-          </div>
-          
-          {renderContent()}
         </div>
+        
+        {/* Spacer div to allow scrolling past the last element easily */}
+        <div style={{ height: '40px', flexShrink: 0 }}></div>
+
       </div>
     </div>
   );

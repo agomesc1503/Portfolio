@@ -149,7 +149,7 @@ input:checked + .slider:before {
 
 /* Sidebar navigation */
 .cyber-sidebar {
-  width: 120px;
+  width: 140px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -173,6 +173,8 @@ input:checked + .slider:before {
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-align: center;
+  padding: 0 5px;
 }
 .cyber-icon svg {
   margin-bottom: 8px;
@@ -197,16 +199,20 @@ input:checked + .slider:before {
 .hologram-panel-container {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 40px;
   perspective: 1000px;
+  overflow-y: auto;
+  gap: 60px;
+  scroll-behavior: smooth;
+  position: relative;
 }
 
 .hologram-panel {
   width: 100%;
   max-width: 800px;
-  height: 80%;
+  height: auto;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(16px);
@@ -217,10 +223,10 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   color: #fff;
-  animation: hologramIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: center;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
 
 .hologram-panel::before {
