@@ -103,7 +103,7 @@ export default function CyberpunkOS({ lang, t }) {
                   Añade tu foto como 'profile.jpeg' en la carpeta public/
                 </span>
                 <img 
-                  src="/profile.jpeg" 
+                  src={`${import.meta.env.BASE_URL}profile.jpeg`} 
                   alt="Profile" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative', zIndex: 10 }}
                   onError={(e) => e.target.style.display = 'none'}
