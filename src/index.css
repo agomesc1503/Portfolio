@@ -388,3 +388,110 @@ input:checked + .slider:before {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .cyber-desktop {
+    flex-direction: column;
+    height: 100dvh;
+  }
+  
+  .cyber-sidebar {
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    border-right: none;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+    gap: 5px;
+    justify-content: space-around;
+    padding: 0 5px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 100%);
+    order: 2;
+    z-index: 100;
+  }
+
+  .cyber-icon {
+    font-size: 9px;
+  }
+  
+  .cyber-icon svg {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+
+  .hologram-panel-container {
+    padding: 15px;
+    gap: 40px;
+    order: 1;
+    padding-top: 80px; /* Space for the top controls */
+  }
+
+  .top-controls {
+    top: 10px !important;
+    right: 10px !important;
+    left: 10px !important;
+    justify-content: space-between !important;
+    gap: 5px !important;
+  }
+
+  .theme-switch-container {
+    padding: 5px 10px;
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .switch {
+    width: 36px;
+    height: 18px;
+  }
+
+  .slider:before {
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+
+  .hologram-header {
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .hologram-title {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .hologram-title svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .hologram-header div:last-child {
+    font-size: 10px;
+    align-self: flex-end;
+  }
+
+  .hologram-content {
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .pro-terminal {
+    padding: 20px;
+    padding-top: 80px;
+    font-size: 14px;
+  }
+
+  .pro-terminal input {
+    font-size: 14px;
+    width: 70%;
+  }
+}

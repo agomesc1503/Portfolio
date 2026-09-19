@@ -17,8 +17,8 @@ The site is fully available in Spanish and English, allowing users to switch lan
 
 - **Dual Interface:** Switch seamlessly between a futuristic UI and a retro terminal mode.
 - **Bilingual Content:** Full Spanish and English support managed through a central dictionary.
-- **Smooth Navigation:** Single-page scroll layout with a fixed sidebar navigation.
-- **Responsive Design:** Adapts to different screen sizes and devices.
+- **Mobile Optimized:** Fully responsive layout where the sidebar transforms into a bottom navigation bar for a native app-like experience on smartphones.
+- **Smooth Navigation:** Single-page scroll layout with seamless transitions.
 - **Cyberpunk Aesthetic:** Custom CSS animations, neon glows, and interactive hover effects.
 
 ## Built with
@@ -83,7 +83,7 @@ If you fork the project or rename the repository, remember to update the product
 
 ## Author
 
-**Alejandro Gómez Escobar** — Software Engineering Student
+**Alejandro Gómez Escobar** — Computer Engineering Student
 
 - [LinkedIn](https://www.linkedin.com/in/agomesc1503)
 - [GitHub](https://www.github.com/agomesc1503)
