@@ -185,6 +185,18 @@ export default function CyberpunkOS({ lang, t }) {
                   {c.contact.connect}
                 </button>
               </div>
+              
+              <div style={{ padding: '15px', borderLeft: '2px solid var(--neon-cyan)', background: 'rgba(0,243,255,0.05)' }}>
+                <div style={{ color: 'var(--neon-magenta)', fontSize: '14px', marginBottom: '5px' }}>
+                  {c.contact.gitLabel}
+                </div>
+                <div style={{ fontSize: '20px', color: '#fff', marginBottom: '15px' }}>
+                  {c.contact.gitValue}
+                </div>
+                <button className="cyber-button" onClick={() => window.open(`https://${c.contact.gitValue}`, '_blank')}>
+                  {c.contact.connect}
+                </button>
+              </div>
 
             </div>
           </div>

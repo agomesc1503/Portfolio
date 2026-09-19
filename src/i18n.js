@@ -34,7 +34,8 @@ export const translations = {
         title: "> Registros de Experiencia",
         list: [
           { title: "// PORTFOLIO HOLOGRÁFICO", sub: "React, CSS3, Vite", desc: "Simulación interactiva de interfaz neuronal." },
-          { title: "// BALANCEA-APP", sub: "Finanzas Personales", desc: "Aplicación dedicada a controlar el balance de una manera personalizada a gusto del consumidor." }
+          { title: "// BALANCEA-APP", sub: "Finanzas Personales", desc: "Aplicación dedicada a controlar el balance de una manera personalizada a gusto del consumidor." },
+          { title: "// FINOPS MERCEDES", sub: "Hackathon", desc: "Plataforma desarrollada durante un hackathon, enfocada en la intersección de FinOps e Inteligencia Artificial. Su objetivo principal es ayudar a entender, controlar y optimizar el gasto tecnológico mediante el análisis de datos." }
         ]
       },
       skills: {
@@ -44,9 +45,11 @@ export const translations = {
       contact: {
         title: "> Establecer Conexión Segura",
         emailLabel: "ID ENCRIPTADA (EMAIL):",
-        emailValue: "tu.correo@ejemplo.com",
-        linkLabel: "RED NEURONAL (LINKEDIN):",
-        linkValue: "linkedin.com/in/tu-perfil",
+        emailValue: "alesaxo15@gmail.com",
+        linkLabel: "CONEXIÓN SEGURA (LINKEDIN):",
+        linkValue: "www.linkedin.com/in/agomesc1503",
+        gitLabel: "RED NEURONAL (GITHUB):",
+        gitValue: "www.github.com/agomesc1503",
         connect: "Conectar"
       }
     },
@@ -68,12 +71,12 @@ export const translations = {
         '> (App de finanzas personalizada, en fase de desarrollo)'
       ],
       projects: [
-        '[1] App Retro OS (React, CSS)',
-        '[2] E-commerce Platform (Node.js, MongoDB)',
-        '[3] 2D Platformer Game (Canvas, JS)'
+        '[1] Portfolio Holográfico (React, Vite, CSS)',
+        '[2] Balancea-App (Finanzas Personales)',
+        '[3] FinOps Mercedes (Hackathon - IA & FinOps)'
       ],
       skills: ['JavaScript, React, Node.js, CSS, HTML5, SQL, Git'],
-      contact: ['Email: developer@example.com', 'GitHub: github.com/tuusuario'],
+      contact: ['Email: alesaxo15@gmail.com', 'LinkedIn: www.linkedin.com/in/agomesc1503', 'GitHub: www.github.com/agomesc1503'],
       error: 'Comando no reconocido: "{cmd}". Escribe "help" para más información.'
     }
   },
@@ -112,7 +115,8 @@ export const translations = {
         title: "> Experience Logs",
         list: [
           { title: "// HOLOGRAPHIC PORTFOLIO", sub: "React, CSS3, Vite", desc: "Interactive neural interface simulation." },
-          { title: "// BALANCEA-APP", sub: "Personal Finance", desc: "Finance application dedicated to personalized balance tracking." }
+          { title: "// BALANCEA-APP", sub: "Personal Finance", desc: "Finance application dedicated to personalized balance tracking tailored to the consumer's needs." },
+          { title: "// FINOPS MERCEDES", sub: "Hackathon", desc: "Platform developed during a hackathon, focused on the intersection of FinOps and Artificial Intelligence. Its main goal is to help understand, control, and optimize technology spending through data analysis." }
         ]
       },
       skills: {
@@ -122,9 +126,11 @@ export const translations = {
       contact: {
         title: "> Establish Secure Connection",
         emailLabel: "ENCRYPTED ID (EMAIL):",
-        emailValue: "your.email@example.com",
-        linkLabel: "NEURAL NET (LINKEDIN):",
-        linkValue: "linkedin.com/in/your-profile",
+        emailValue: "alesaxo15@gmail.com",
+        linkLabel: "SECURE LINK (LINKEDIN):",
+        linkValue: "www.linkedin.com/in/agomesc1503",
+        gitLabel: "NEURAL NET (GITHUB):",
+        gitValue: "www.github.com/agomesc1503",
         connect: "Connect"
       }
     },
@@ -146,12 +152,12 @@ export const translations = {
         '> (Personalized finance tracker, currently in development)'
       ],
       projects: [
-        '[1] Retro OS App (React, CSS)',
-        '[2] E-commerce Platform (Node.js, MongoDB)',
-        '[3] 2D Platformer Game (Canvas, JS)'
+        '[1] Holographic Portfolio (React, Vite, CSS)',
+        '[2] Balancea-App (Personal Finance)',
+        '[3] FinOps Mercedes (Hackathon - AI & FinOps)'
       ],
       skills: ['JavaScript, React, Node.js, CSS, HTML5, SQL, Git'],
-      contact: ['Email: developer@example.com', 'GitHub: github.com/youruser'],
+      contact: ['Email: alesaxo15@gmail.com', 'LinkedIn: www.linkedin.com/in/agomesc1503', 'GitHub: www.github.com/agomesc1503'],
       error: 'Command not recognized: "{cmd}". Type "help" for more information.'
     }
   }
